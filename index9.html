@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Design and Marketing | Philadelphia, PA</title>
+  <style>
+    body {
+      margin: 20px 50px;
+    }
+
+    .projects {
+      color: #000;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 70px;
+      font-weight: bold;
+      letter-spacing: -2px;
+      line-height: 65px;
+      margin-bottom: 40px;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #ffb6e2;
+      text-decoration: none;
+    }
+
+    .images {
+      width: 40%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .item-image {
+      position: sticky;
+      top: 0;
+      margin-bottom: 20px;
+    }
+
+    .response-image {
+      max-width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="projects">
+    Austin Mayer is a Philadelphia based freelance creative designer providing 3D, UX and graphic design services to artists, cultural institutions, and early‑stage startups. Get in touch below for a free consultation.
+    <br><br>
+    <a href="https://www.linkedin.com/company/a-m-8jdfisf">LinkedIn</a><br>
+    <a href="https://www.figma.com">Figma</a><br>
+    <a href="mailto:austinmayer@gmail.com">austinmayer@gmail.com</a><br><br>
+    © 2021–2025
+  </div>
+
+  <div class="images" id="images-container"></div>
+
+  <script>
+    // Create an array [1,2,…,50]
+    const imageNumbers = Array.from({length: 50}, (_, i) => i + 1);
+
+    // Fisher‑Yates shuffle
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+    shuffle(imageNumbers);
+
+    // Inject shuffled images
+    const container = document.getElementById('images-container');
+    imageNumbers.forEach(num => {
+      const div = document.createElement('div');
+      div.className = 'item-image';
+
+      const img = document.createElement('img');
+      img.className = 'response-image';
+      img.src = `images/${num}.webp`;
+      img.loading = 'lazy';
+      img.alt = '';
+
+      div.appendChild(img);
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
